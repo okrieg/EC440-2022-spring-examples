@@ -3,7 +3,7 @@ This repository exists to share code both between staff and students of ec440 in
 
 Directories:
 * challenges - place where we will put any additional code related to challenges
-** currently has simplified makefiles for challenge 0
+ * currently has simplified makefiles for challenge 0
 * lecture_demos - various snippets of code we have talked through or shown in class
 
 You can fork your own version of this repo, and then suggest changes
