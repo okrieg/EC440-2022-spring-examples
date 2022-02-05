@@ -6,7 +6,7 @@ Directories:
    * currently has simplified makefiles for challenge 0
 - lecture_demos - various snippets of code we have talked through or shown in class
    * lec4
-   * lec5 - debugging multiple threads
+   * [lec5](lecture_demos/lec5/README.md) - debugging multiple threads
 
 You can fork your own version of this repo, and then suggest changes
 to us, by looking at
