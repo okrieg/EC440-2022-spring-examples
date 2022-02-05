@@ -5,6 +5,8 @@ Directories:
 - challenges - place where we will put any additional code related to challenges
    * currently has simplified makefiles for challenge 0
 - lecture_demos - various snippets of code we have talked through or shown in class
+   * lec4
+   * lec5 - debugging multiple threads
 
 You can fork your own version of this repo, and then suggest changes
 to us, by looking at
