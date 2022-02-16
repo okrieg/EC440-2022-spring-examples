@@ -1,10 +1,15 @@
 #ifndef __EC440THREADS__
 #define __EC440THREADS__
+static unsigned long int ptr_demangle(unsigned long int p) __attribute__((unused));
+static void *start_thunk() __attribute__((unused));
+static unsigned long int ptr_mangle(unsigned long int p) __attribute__((unused));
+
 /*
  * This file is derived from code provided by Prof. Egele
  */
 
-static unsigned long int ptr_demangle(unsigned long int p)
+static 
+unsigned long int ptr_demangle(unsigned long int p)
 {
     unsigned long int ret;
 
@@ -19,7 +24,8 @@ static unsigned long int ptr_demangle(unsigned long int p)
     return ret;
 }
 
-static unsigned long int ptr_mangle(unsigned long int p)
+static
+unsigned long int ptr_mangle(unsigned long int p)
 {
     unsigned long int ret;
 
@@ -34,6 +40,7 @@ static unsigned long int ptr_mangle(unsigned long int p)
     return ret;
 }
 
+inline
 static void *start_thunk() {
   asm("popq %%rbp;\n"           //clean up the function prologue
       "movq %%r13, %%rdi;\n"    //put arg in $rdi

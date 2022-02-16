@@ -44,6 +44,9 @@ struct thread_control_block {
 	/* Add other information you need to manage this thread */
 };
 
+// to supress compiler error
+static void schedule(int signal) __attribute__((unused));
+
 static void schedule(int signal)
 {
 	/* TODO: implement your round-robin scheduler 
