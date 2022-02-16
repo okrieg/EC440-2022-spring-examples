@@ -7,6 +7,7 @@ Directories:
 - lecture_demos - various snippets of code we have talked through or shown in class
    * lec4
    * [lec5](lecture_demos/lec5/README.md) - debugging multiple threads
+   * [lec8](lecture_demos/lec8/README.md) - using set/long jump
 
 You can fork your own version of this repo, and then suggest changes
 to us, by looking at
