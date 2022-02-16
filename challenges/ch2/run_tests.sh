@@ -9,7 +9,7 @@ for test_file in "${all_tests[@]}"
 do
 	printf "\033[1;39m===== %s =====\033[0m\n" "${test_file}"
 	rm -f testfs # Tidy up from previous tests
-	timeout ${TIMEOUT_SECONDS} "${test_file}"
+	timeout ${TIMEOUT_SECONDS} ./"${test_file}"
 	rc=$?
 	if [ ${rc} -eq 0 ]
 	then

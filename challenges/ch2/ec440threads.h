@@ -4,6 +4,7 @@
  * This file is derived from code provided by Prof. Egele
  */
 
+inline
 static unsigned long int ptr_demangle(unsigned long int p)
 {
     unsigned long int ret;
@@ -19,6 +20,7 @@ static unsigned long int ptr_demangle(unsigned long int p)
     return ret;
 }
 
+inline
 static unsigned long int ptr_mangle(unsigned long int p)
 {
     unsigned long int ret;
@@ -34,6 +36,7 @@ static unsigned long int ptr_mangle(unsigned long int p)
     return ret;
 }
 
+inline
 static void *start_thunk() {
   asm("popq %%rbp;\n"           //clean up the function prologue
       "movq %%r13, %%rdi;\n"    //put arg in $rdi

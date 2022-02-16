@@ -44,6 +44,7 @@ struct thread_control_block {
 	/* Add other information you need to manage this thread */
 };
 
+#if 0				/* delete this when you start using */
 static void schedule(int signal)
 {
 	/* TODO: implement your round-robin scheduler 
@@ -53,6 +54,7 @@ static void schedule(int signal)
 	 * 3. Switch to the next thread (use longjmp on that thread's jmp_buf)
 	 */
 }
+#endif
 
 static void scheduler_init()
 {
