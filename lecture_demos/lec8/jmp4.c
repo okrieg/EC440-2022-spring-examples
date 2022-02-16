@@ -23,7 +23,7 @@ void
 foo()
 {
   printf("you called foo\n");
-  //exit(0);
+  exit(0);
 }
 
 int
