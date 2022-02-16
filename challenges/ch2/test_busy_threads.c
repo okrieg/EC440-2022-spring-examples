@@ -33,6 +33,20 @@ void *count(void *arg) {
 	return NULL;
 }
 
+void wait_threads(int i)
+{
+#if HAVE_PTHREAD_JOIN == 0
+	/* Wait for longer than the most busy of the other threads */
+	count((void *)(intptr_t)((i + 1) * COUNTER_FACTOR));
+#else
+	/* Collect statuses of the other threads, waiting for them to finish */
+	for(i = 0; i < THREAD_CNT; i++) {
+		pthread_join(threads[i], NULL);
+	}
+#endif
+}
+
+
 /*
  * Expected behavior: THREAD_CNT number of threads print increasing numbers
  * in a round-robin fashion. The first thread finishes soonest, and the last
@@ -54,14 +68,7 @@ int main(int argc, char **argv) {
 		               (void *)(intptr_t)((i + 1) * COUNTER_FACTOR));
 	}
 
-#if HAVE_PTHREAD_JOIN == 0
-	/* Wait for longer than the most busy of the other threads */
-	count((void *)(intptr_t)((i + 1) * COUNTER_FACTOR));
-#else
-	/* Collect statuses of the other threads, waiting for them to finish */
-	for(i = 0; i < THREAD_CNT; i++) {
-		pthread_join(threads[i], NULL);
-	}
-#endif
+	wait_threads(i);
+
 	return 0;
 }

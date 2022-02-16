@@ -3,60 +3,53 @@
 #include <stdlib.h>
 #include <unistd.h>
 jmp_buf env[3];
-int x[3];
+int x[3] = {0,0,0};
 
 void
-a(int i)
+a()
 {
-  if (i==1) {
-    x[0] = setjmp(env[0]);
-  } else {
-    longjmp(env[0], 1);
+  if (x[0]==0) {
+    if((x[0] = setjmp(env[0])) == 0)
+      return;
   }
-  if (x[0]) {
-    printf("a() runs\n");
-    sleep(1);
-  }
+  printf("a() runs\n");
+  sleep(1);
+  longjmp(env[1], 1);
+
 }
 
 void
-b(int i)
+b()
 {
-  if (i==1) {
-    x[1] = setjmp(env[1]);
-  } else {
-    longjmp(env[1], 1);
+  if (x[1]==0) {
+    if( (x[1] = setjmp(env[1])) == 0)
+      return;
   }
-  if (x[1]) {
-    printf("b() runs\n");
-    sleep(1);
-  }
+  printf("b() runs\n");
+  sleep(1);
+  longjmp(env[2], 1);
 }
 
 void
-c(int i)
+c()
 {
-  if (i==1) 
-    x[2] = setjmp(env[2]);
-  else
-    longjmp(env[2], 1);
-  if (x[2]) {
-    printf("c() runs\n");
-    sleep(1);
+  if (x[2]==0) {
+    if( (x[2] = setjmp(env[2])) == 0) 
+      return;
   }
+
+  printf("c() runs\n");
+  sleep(1);
+  longjmp(env[0], 1);
 }
 
 int main()
 {
-  do {
-    printf("suspending\n");
-    a(1);
-    b(1);
-    c(1);
-    
-    printf("running\n");
-    a(0);
-    b(0);
-    c(0);
-  } while(1);
+  printf("suspending\n");
+  a();
+  b();
+  c();
+  
+  printf("running\n");
+  longjmp(env[0], 1);
 }
