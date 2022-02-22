@@ -12,7 +12,7 @@ test_pthread_mutex_basic: test_pthread_mutex_basic.o
 
 # Run the test programs
 check: 
-	run_tests.sh $(prog)
+	./run_tests.sh $(prog)
 
 clean:
 	rm -f *.o $(prog) *.o 
