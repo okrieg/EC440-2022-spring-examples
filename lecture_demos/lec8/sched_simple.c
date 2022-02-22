@@ -6,6 +6,14 @@ jmp_buf env[3];
 int x[3] = {0,0,0};
 
 void
+schedule()
+{
+  static int cenv = 0;
+  if (cenv == 3) cenv = 0;
+  longjmp(env[cenv++], 1);
+}
+
+void
 a()
 {
   if (x[0]==0) {
@@ -14,8 +22,7 @@ a()
   }
   printf("a() runs\n");
   sleep(1);
-  longjmp(env[1], 1);
-
+  schedule();
 }
 
 void
@@ -27,7 +34,7 @@ b()
   }
   printf("b() runs\n");
   sleep(1);
-  longjmp(env[2], 1);
+  schedule();
 }
 
 void
@@ -40,7 +47,7 @@ c()
 
   printf("c() runs\n");
   sleep(1);
-  longjmp(env[0], 1);
+  schedule();
 }
 
 int main()
@@ -51,5 +58,5 @@ int main()
   c();
   
   printf("running\n");
-  longjmp(env[0], 1);
+  schedule();
 }
