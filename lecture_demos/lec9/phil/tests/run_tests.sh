@@ -23,4 +23,4 @@ do
 	fi
 done
 
-printf "\n%d out of i%d tests failed.\n" "${fail_count}" "${test_count}"
+printf "\n%d out of %d tests failed.\n" "${fail_count}" "${test_count}"
