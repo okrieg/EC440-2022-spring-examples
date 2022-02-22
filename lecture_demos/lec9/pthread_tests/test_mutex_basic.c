@@ -8,6 +8,8 @@
 #include <assert.h>
 
 pthread_mutex_t *mutex;
+pthread_mutexattr_t Attr;
+
 
 int main(int argc, char **argv)
 {
@@ -22,13 +24,6 @@ int main(int argc, char **argv)
   int lock_status = pthread_mutex_lock(mutex);
   assert(lock_status == 0);
   printf("Mutex can be locked!\n\n");
-  
-#if 0
-  printf("Testing if code recognizes self-locked mutex.\n");
-  lock_status = pthread_mutex_lock(mutex);
-  assert(lock_status != 0); // return values may differ between implementations
-  printf("Code recognizes self-locked mutex!\n\n");
-#endif
   
   printf("Testing if mutex can be unlocked.\n");
   lock_status = pthread_mutex_unlock(mutex);
