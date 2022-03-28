@@ -1,9 +1,12 @@
 # EC440-2022-spring-examples
-This repository exists to share code both between staff and students of ec440 in spring 2022.
+This reposito9ry exists to share code both between staff and students of ec440 in spring 2022.
 
 Directories:
 - challenges - place where we will put any additional code related to challenges
-   * currently has simplified makefiles for challenge 0
+   * [provided](challenges/ch0/ch0_original) makefile and [simplified](challenges/ch0/ch0_simple) makefiles for challenge 0 
+   * [provided](challenges/ch2) code for challenge 2 
+   * [provided](challenges/ch4) code for challenge 4
+   
 - lecture_demos - various snippets of code we have talked through or shown in class
    * lec4
    * [lec5](lecture_demos/lec5/README.md) - debugging multiple threads
