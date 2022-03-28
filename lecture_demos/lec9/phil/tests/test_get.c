@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
   // following routines assume few NUM_PHIL
   assert(NUM_PHIL>4);
 
-#if 0
+#if 1
   assert(NUM_PHIL>20);
 #endif
   

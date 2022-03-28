@@ -26,8 +26,14 @@ init_phil()
   }
 }
 
+/*
+  Tests if philosopher i wants to, and can eat
+  and if so, does a post (up) to her semaphore.
+*/
 void
 test(int i, int p) {
+  // if phil i is hungry and neither of neighbors are eating
+  // she gets to eat
   if (phil[i].state == HUNGRY && phil[(i + 1) % NUM_PHIL].state != EATING &&
       phil[(i + NUM_PHIL - 1) % NUM_PHIL].state != EATING) {
     phil[i].state = EATING;
@@ -44,7 +50,10 @@ take_chopsticks(int i)
   phil[i].state = HUNGRY;
   test(i, 0);
   pthread_mutex_unlock(&mutex);
-  sem_wait(&phil[i].sem);
+
+  // either post happened in above test,
+  // or by test when neighbors put chopstics
+  sem_wait(&phil[i].sem); 
 }
 
 void

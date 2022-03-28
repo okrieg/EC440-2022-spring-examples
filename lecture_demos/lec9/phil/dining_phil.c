@@ -39,7 +39,7 @@ void *runphil(void *arg){
   for (int i=0; i<count;i++) {
     philosopher(me);
   }
-  fprintf(stderr, "\nphilosopher %ld - done", me);
+  fprintf(stderr, "\nphilosopher %ld - done\n", me);
   return 0;
 }
 

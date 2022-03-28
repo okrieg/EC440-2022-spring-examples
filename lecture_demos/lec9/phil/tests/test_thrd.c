@@ -21,7 +21,7 @@ void tests()
   take_chopsticks(0);
   assert(get_status_phil(0) == EATING);
 
-  // make sure that child blocks
+  // why doesn't this work???
   phil = 1;
   pthread_create(&threads[phil], NULL, thread_take_chopstick, (void *)(intptr_t)(phil)); 
   assert(get_status_phil(phil) == HUNGRY);
@@ -34,7 +34,7 @@ void tests()
 extern void good_tests();
 
 int main(int argc, char **argv) {
-  good_tests();
+  tests();
 }
 
 
@@ -51,14 +51,14 @@ void good_tests()
   phil = 1;
   pthread_create(&threads[phil], NULL, thread_take_chopstick, (void *)(intptr_t)(phil)); 
   while(get_status_phil(phil) != HUNGRY) {
-    sleep(.1);			/* won't work with homework 2 */
+    fprintf(stderr, ".");
   }
 
   assert(get_status_phil(phil) == HUNGRY);
 
   put_chopsticks(0);
   while (get_status_phil(phil) == HUNGRY) {
-    sleep(.1); 			/* won't work with homework 2 */
+    fprintf(stderr, ",");
   }
   assert(get_status_phil(phil) == EATING);
 

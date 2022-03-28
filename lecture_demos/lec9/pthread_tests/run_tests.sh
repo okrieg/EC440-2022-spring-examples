@@ -8,7 +8,7 @@ fail_count=0
 for test_file in "${all_tests[@]}"
 do
 	printf "\033[1;39m===== %s =====\033[0m\n" "${test_file}"
-	timeout ${TIMEOUT_SECONDS} "${test_file}"
+	timeout ${TIMEOUT_SECONDS} "./${test_file}"
 	rc=$?
 	if [ ${rc} -eq 0 ]
 	then
@@ -23,4 +23,4 @@ do
 	fi
 done
 
-printf "\n%d out of i%d tests failed.\n" "${fail_count}" "${test_count}"
+printf "\n%d out of %d tests failed.\n" "${fail_count}" "${test_count}"

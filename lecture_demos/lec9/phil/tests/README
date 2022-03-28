@@ -1,15 +1,9 @@
 What do I want to test?
 - state after a philosopher gets chopsticks
   - if neighbor philosophers thinking 
-  - if neighbor philosophers eating - 
+  - if neighbor philosophers eating 
 - state after you put chopstics
   - if neighbor philosophers thinking
   - if neighbor philosophers blocked
-- running a full simulation
-- debugging scripts, try running -x
-
-
----- saved snippet
-
-#if 0
-#endif
+- in class - review bad assertion, with debugger test_get
+- in class - review good and bad tests for releasing another philosopher
